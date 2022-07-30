@@ -7,12 +7,18 @@ import * as express from 'express';
 
 const app = express();
 
-app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to express-app!' });
+
+app.get('/', (req, res) => {
+  res.send({ message: 'Hello World from Nx 🌎' });
 });
+
+app.get('/api-test', (req, res) => {
+  res.status(200).json({message:'Hello World from Nx 🌎 - api'})
+}); 
+
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}/api`);
+  console.log(`Listening at http://localhost:${port}/`);
 });
 server.on('error', console.error);
